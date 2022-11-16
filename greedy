@@ -1,0 +1,17 @@
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        n=len(nums)
+        arr=[-1]*n
+        i=n-2
+        arr[n-1]=0
+        while i>=0:
+            j=i+1
+            jend=min(i+nums[i],n-1)
+            if j<=jend:
+                arrnew=arr[j:jend+1]
+                val=min(arrnew)
+                arr[i]=val+1
+            else:
+                arr[i]=1001
+            i-=1
+        return arr[0]
